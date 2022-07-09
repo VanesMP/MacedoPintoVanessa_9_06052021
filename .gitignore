@@ -20,3 +20,5 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+/bill-app/Billed-app-FR-Front/node_modules/*
