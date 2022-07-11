@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657576389576" clover="3.2.0">
-  <project timestamp="1657576389577" name="All files">
-    <metrics statements="228" coveredstatements="199" conditionals="98" coveredconditionals="79" methods="70" coveredmethods="54" elements="396" coveredelements="332" complexity="0" loc="228" ncloc="228" packages="3" files="16" classes="16"/>
+<coverage generated="1657577389846" clover="3.2.0">
+  <project timestamp="1657577389846" name="All files">
+    <metrics statements="226" coveredstatements="199" conditionals="98" coveredconditionals="79" methods="70" coveredmethods="54" elements="394" coveredelements="332" complexity="0" loc="226" ncloc="226" packages="3" files="16" classes="16"/>
     <package name="constants">
       <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="routes.js" path="C:\Users\bibi computer\Desktop\projet_9\bill-app\Billed-app-FR-Front\src\constants\routes.js">
@@ -20,9 +20,9 @@
       </file>
     </package>
     <package name="containers">
-      <metrics statements="190" coveredstatements="161" conditionals="61" coveredconditionals="42" methods="54" coveredmethods="38"/>
+      <metrics statements="188" coveredstatements="161" conditionals="61" coveredconditionals="42" methods="54" coveredmethods="38"/>
       <file name="Bills.js" path="C:\Users\bibi computer\Desktop\projet_9\bill-app\Billed-app-FR-Front\src\containers\Bills.js">
-        <metrics statements="26" coveredstatements="19" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="6"/>
+        <metrics statements="24" coveredstatements="19" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="6"/>
         <line num="7" count="4" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
@@ -46,9 +46,7 @@
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
       </file>
       <file name="Dashboard.js" path="C:\Users\bibi computer\Desktop\projet_9\bill-app\Billed-app-FR-Front\src\containers\Dashboard.js">
         <metrics statements="77" coveredstatements="72" conditionals="45" coveredconditionals="34" methods="25" coveredmethods="20"/>
