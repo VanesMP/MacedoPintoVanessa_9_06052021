@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.64% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>78/89</span>
+                <span class='fraction'>77/88</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.58% </span>
+                <span class="strong">93.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>73/78</span>
+                <span class='fraction'>72/77</span>
             </div>
         
             
@@ -258,7 +258,12 @@
 <a name='L193'></a><a href='#L193'>193</a>
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -371,15 +376,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -391,6 +387,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
@@ -407,7 +413,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -564,6 +574,7 @@ export default class {
         $('#icon-eye-d').click(this.handleClickIconEye)
         $('#btn-accept-bill').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleAcceptSubmit(e, bill))</span>
         $('#btn-refuse-bill').click(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleRefuseSubmit(e, bill))</span>
+&nbsp;
     }
 &nbsp;
     handleAcceptSubmit = (e, bill) =&gt; {
@@ -602,13 +613,17 @@ export default class {
                 .html("")
 <span class="cstat-no" title="statement not covered" >            this.counter++</span>
         }
-        console.log(bills) //tableau des notes de frais
 &nbsp;
         //[Bug Hunt] - Dashboard: pourvoir déplier plusieurs listes, et consulter les tickets de chacune des deux listes.
         //pour afficher les bills à volonté peut importe l' ordre
-&nbsp;
-        bills.forEach((bill) =&gt; {
-            $(`#open-bill${bill.id}`).off('click')
+        //probleme: le bill a deux listener
+        // bills.forEach(bill =&gt; {
+        //         $(`#open-bill${bill.id}`).click((e) =&gt; this.handleEditTicket(e, bill, bills))
+        //     })
+        //j' utilise la méthode jQuery off() pour retirer tous les Listener attachés au bill
+        //puis j 'utilise la méthode jQuery on() pour mettre un eventListeer sur le bill pour l' afficher 
+        bills.forEach(bill =&gt; {
+            $(`#open-bill${bill.id}`).off()
             $(`#open-bill${bill.id}`).on('click', (e) =&gt; this.handleEditTicket(e, bill, bills))
         })
 &nbsp;
@@ -655,7 +670,7 @@ export default class {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Jul 10 2022 16:39:54 GMT+0200 (heure d’été d’Europe centrale)
+                at Mon Jul 11 2022 23:53:09 GMT+0200 (heure d’été d’Europe centrale)
             </div>
         <script src="../prettify.js"></script>
         <script>
