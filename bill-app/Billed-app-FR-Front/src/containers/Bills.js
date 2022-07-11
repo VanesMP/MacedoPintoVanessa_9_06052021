@@ -32,15 +32,13 @@ export default class {
             return this.store.bills().list().then(snapshot => {
                 const bills = snapshot.map(doc => {
                     try {
-                        return {
-                            ...doc,
+                        return {...doc,
                             date: formatDate(doc.date),
                             status: formatStatus(doc.status)
                         }
                     } catch (e) {
                         console.log(e, 'for', doc)
-                        return {
-                            ...doc,
+                        return {...doc,
                             date: doc.date,
                             status: formatStatus(doc.status)
                         }

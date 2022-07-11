@@ -21,19 +21,16 @@ export default class NewBill {
         e.preventDefault()
         const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
         const filePath = e.target.value.split(/\\/g)
-        console.log(filePath)
-        console.log(e.target.value)
         const fileName = filePath[filePath.length - 1]
         const formData = new FormData()
         const email = JSON.parse(localStorage.getItem("user")).email
-        console.log(email)
         formData.append('file', file)
         formData.append('email', email)
-        console.log(this.fileName, fileName)
-            //[Bug Hunt] - Bills : empêcher la saisie d'un document qui a une extension différente de jpg, jpeg ou png
-            //créer un condition: si file.name ne contient pas une des 3 extensions possible :
-            //1: vider la valeur de input[data-testid="file"] pour ne pas avoir un envoi possible puisque il a un attribut html 'required'
-            //2: afficher une alert()
+
+        //[Bug Hunt] - Bills : empêcher la saisie d'un document qui a une extension différente de jpg, jpeg ou png
+        //créer un condition: si file.name ne contient pas une des 3 extensions possible :
+        //1: vider la valeur de input[data-testid="file"] pour ne pas avoir un envoi possible puisque il a un attribut html 'required'
+        //2: afficher une alert()
 
         if (!fileName.match(/.(jpg|jpeg|png)$/i)) {
             e.target.value = ''
@@ -57,7 +54,6 @@ export default class NewBill {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
         const email = JSON.parse(localStorage.getItem("user")).email
         const bill = {
             email,

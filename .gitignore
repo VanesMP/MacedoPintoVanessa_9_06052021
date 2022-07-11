@@ -23,3 +23,5 @@ doc/api/
 
 /bill-app/Billed-app-FR-Front/node_modules/*
 /bill-app/Billed-app-FR-Back/node_modules/*
+
+.vscode

@@ -109,6 +109,7 @@ export default class {
         $('#icon-eye-d').click(this.handleClickIconEye)
         $('#btn-accept-bill').click((e) => this.handleAcceptSubmit(e, bill))
         $('#btn-refuse-bill').click((e) => this.handleRefuseSubmit(e, bill))
+
     }
 
     handleAcceptSubmit = (e, bill) => {
@@ -147,13 +148,17 @@ export default class {
                 .html("")
             this.counter++
         }
-        console.log(bills) //tableau des notes de frais
 
         //[Bug Hunt] - Dashboard: pourvoir déplier plusieurs listes, et consulter les tickets de chacune des deux listes.
         //pour afficher les bills à volonté peut importe l' ordre
-
-        bills.forEach((bill) => {
-            $(`#open-bill${bill.id}`).off('click')
+        //probleme: le bill a deux listener
+        // bills.forEach(bill => {
+        //         $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+        //     })
+        //j' utilise la méthode jQuery off() pour retirer tous les Listener attachés au bill
+        //puis j 'utilise la méthode jQuery on() pour mettre un eventListeer sur le bill pour l' afficher 
+        bills.forEach(bill => {
+            $(`#open-bill${bill.id}`).off()
             $(`#open-bill${bill.id}`).on('click', (e) => this.handleEditTicket(e, bill, bills))
         })
 
